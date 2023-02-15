@@ -2,17 +2,18 @@ import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post() {
+
+export function Post({ author, content, publishedAt}) {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/IagoAndrade16.png" />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
             <strong>
-              Iago Alexandre
+              {author.name}
             </strong>
-            <span>Web developer</span>
+            <span>{author.role}</span>
           </div>
         </div>
 
@@ -30,11 +31,6 @@ export function Post() {
           <a href="">
             👉 {' '} jane.design/doctorcare
           </a>
-        </p>
-        <p>
-          <a href="">#novoprojeto </a>{' '}
-          <a href="">#nlw</a>{' '}
-          <a href="">#rocketseat</a>{' '}
         </p>
       </div>
 
