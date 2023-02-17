@@ -9,9 +9,19 @@ export function Comment ({ content, onDeleteComment }) {
     onDeleteComment(content);
   }
 
-  // function handleLikeComment() {
-  //   setLikeCount(likeCount + 1);
-  // }
+  function handleLikeComment() {
+    /** Sempre que for alterar o valor de uma variável que depende do antigo valor dela, usa função anônima */
+
+    // Isso funciona, porém não é melhor jeito, pois depende do valor anterior de like count
+    setLikeCount(likeCount + 1);
+
+    // Esse é o melhor jeito. (state é o valor anterior de like count)
+    setLikeCount((state) => {
+      return state + 1;
+    })
+
+
+  }
 
 
   return (
